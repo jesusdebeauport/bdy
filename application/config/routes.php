@@ -49,6 +49,9 @@
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['recipe/create'] = 'recipe/create';
+$route['recipe/(:any)'] = 'recipe/view/$1';
+$route['recipe'] = 'recipe';
 $route['user/create'] = 'user/create';
 $route['user/(:any)'] = 'user/view/$1';
 $route['user'] = 'user';

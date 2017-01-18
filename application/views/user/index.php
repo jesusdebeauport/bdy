@@ -4,10 +4,10 @@
 
 <?php foreach ($users as $user_item): ?>
 
-    <h3><?php echo $user_item['name']; ?></h3>
+    <h3><?php echo $user_item['username']; ?></h3>
     <div class="main">
         <?php echo $user_item['email']; ?>
     </div>
-    <p><a href="<?php echo site_url('user/'.$user_item['name']); ?>">View User</a></p>
+    <p><a href="<?php echo site_url('user/'.$user_item['user_id']); ?>">View User</a></p>
 
 <?php endforeach; ?>

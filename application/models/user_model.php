@@ -5,13 +5,13 @@ class user_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_user($name = FALSE) {
-        if ($name === FALSE) {
+    public function get_user($id = FALSE) {
+        if ($id === FALSE) {
             $query = $this->db->get('bdy_user');
             return $query->result_array();
         }
 
-        $query = $this->db->get_where('bdy_user', array('name' => $name));
+        $query = $this->db->get_where('bdy_user', array('user_id' => $id));
         return $query->row_array();
     }
 
