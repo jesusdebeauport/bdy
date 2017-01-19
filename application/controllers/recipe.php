@@ -32,12 +32,12 @@ class recipe extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $data['title'] = 'Créer une recette';
+        $data['title'] = 'CrÃ©er une recette';
 
-        $this->form_validation->set_rules('category_id', 'Catégorie', 'required');
+        $this->form_validation->set_rules('category_id', 'CatÃ©gorie', 'required');
         $this->form_validation->set_rules('name', 'Titre', 'required');
         $this->form_validation->set_rules('nb_portion', 'Nombre de portion', 'required');
-        $this->form_validation->set_rules('preparation_time', 'Temps de préparation', 'required');
+        $this->form_validation->set_rules('preparation_time', 'Temps de prÃ©paration', 'required');
         $this->form_validation->set_rules('waiting_time', 'Temps d\'attente', 'required');
         $this->form_validation->set_rules('comment', 'Commentaire', 'required');
 

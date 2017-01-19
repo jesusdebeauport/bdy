@@ -48,6 +48,26 @@
 		-webkit-text-size-adjust: none;
 	}
 
+	form input[type="text"],
+	form input[type="email"],
+	form input[type="password"],
+	form select,
+	form textarea {
+		background: #f7f7f7;
+	}
+
+	form input[type="text"]:focus,
+	form input[type="email"]:focus,
+	form input[type="password"]:focus,
+	form select:focus,
+	form textarea:focus {
+		background: #fff;
+	}
+
+	h2 {
+		text-align: center;
+	}
+
 /* Box Model */
 
 	*, *:before, *:after {
@@ -1338,7 +1358,7 @@
 
 	form input[type="text"],
 	form input[type="email"]
-	input[type="password"],
+	form input[type="password"],
 	form select,
 	form textarea {
 		-moz-transition: background-color 0.25s ease-in-out;
@@ -1358,7 +1378,7 @@
 
 		form input[type="text"]:focus,
 		form input[type="email"]
-		input[type="password"]:focus,
+		form input[type="password"]:focus,
 		form select:focus,
 		form textarea:focus {
 			background: #f0f0f0;
@@ -1604,25 +1624,9 @@
 		background: #f0f0f0;
 	}
 
-		#footer-wrapper form input[type="text"],
-		#footer-wrapper form input[type="email"],
-		#footer-wrapper form input[type="password"],
-		#footer-wrapper form select,
-		#footer-wrapper form textarea {
-			background: #f7f7f7;
-		}
-
-			#footer-wrapper form input[type="text"]:focus,
-			#footer-wrapper form input[type="email"]:focus,
-			#footer-wrapper form input[type="password"]:focus,
-			#footer-wrapper form select:focus,
-			#footer-wrapper form textarea:focus {
-				background: #fff;
-			}
-
-		#footer-wrapper h2 {
-			text-align: center;
-		}
+	#footer-wrapper h2 {
+		text-align: center;
+	}
 
 /* Header */
 
