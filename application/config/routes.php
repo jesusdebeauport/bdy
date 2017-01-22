@@ -52,9 +52,9 @@
 $route['recipe/create'] = 'recipe/create';
 $route['recipe/(:any)'] = 'recipe/view/$1';
 $route['recipe'] = 'recipe';
-$route['user/create'] = 'user/create';
 $route['user/login'] = 'user/login';
 $route['user/logout'] = 'user/logout';
+$route['user/signup'] = 'user/signup';
 $route['user/(:any)'] = 'user/view/$1';
 $route['user'] = 'user';
 $route['(:any)'] = 'pages/view/$1';

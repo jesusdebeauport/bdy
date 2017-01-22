@@ -53,7 +53,7 @@ class user extends CI_Controller {
             $this->load->view('templates/footer');
         } else {
             // check for user credentials
-            $uresult = $this->user_model->get_user_login($username, $password);
+            $uresult = $this->user_model->login($username, md5($password));
             if (count($uresult) > 0) {
                 // set session
                 $sess_data = array('login' => TRUE, 'username' => $uresult['username'], 'user_id' => $uresult['user_id']);
@@ -67,25 +67,43 @@ class user extends CI_Controller {
         }
     }
 
-    public function create() {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+    public function signup() {
+        //If already logged in, redirect to user/login
+        if ($this->session->userdata('login')) {
+            $this->session->set_flashdata('error_msg', 'Vous devez vous déconnecter pour pouvoir un nouveau compte.');
+            redirect("user/login");
+        }
 
         $data['title'] = 'Créer un utilisateur';
-
         $this->form_validation->set_rules('username', 'Utilisateur', 'trim|required');
         $this->form_validation->set_rules('password', 'Mot de passe', 'trim|required');
+        $this->form_validation->set_rules('password-confirm', 'Confirmez le mot de passe', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required');
         $this->form_validation->set_rules('firstname', 'Prénom', 'trim|required');
         $this->form_validation->set_rules('lastname', 'Nom', 'trim|required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('user/create');
+            $this->load->view('templates/header');
+            $this->load->view('user/signup', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->user_model->set_user();
-            $this->load->view('user/login');
+            $postData['username'] = strtolower($this->input->post("username"));
+            $postData['password'] = md5($this->input->post("password"));
+            $postData['email'] = $this->input->post("email");
+            $postData['firstname'] = $this->input->post("firstname");
+            $postData['lastname'] = $this->input->post("lastname");
+
+            $uresult = $this->user_model->signup($postData);
+            if ($uresult > 0) {
+                // set session
+                $sess_data = array('login' => TRUE, 'username' => $postData['username'], 'user_id' => $uresult);
+                $this->session->set_userdata($sess_data);
+                $this->session->set_flashdata('success_msg', 'Création de l\'utilisateur réussie.');
+                redirect("user/view");
+            } else {
+                $this->session->set_flashdata('error_msg', 'Une erreur est survenue lors de la d\'utilisateur.');
+                redirect('user/signup');
+            }
         }
     }
 

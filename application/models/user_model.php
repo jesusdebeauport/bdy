@@ -15,9 +15,9 @@ class user_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function get_user_login($username, $password) {
+    public function login($username, $password) {
         $query = $this->db->get_where('bdy_user', array('username' => $username,
-                                                        'password' => md5($password)));
+                                                        'password' => $password));
 
         return $query->row_array();
     }
@@ -31,7 +31,8 @@ class user_model extends CI_Model {
         return $this->db->insert('bdy_user', $data);
     }
 
-    public function insert_user($data) {
-        return $this->db->insert('bdy_user', $data);
+    public function signup($data) {
+        $this->db->insert('bdy_user', $data);
+        return $this->db->insert_id();
     }
 }
