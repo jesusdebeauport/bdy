@@ -6,7 +6,7 @@
 
 (function($) {
 
-	skel
+	/*skel
 		.breakpoints({
 			desktop: '(min-width: 737px)',
 			tablet: '(min-width: 737px) and (max-width: 1200px)',
@@ -18,7 +18,7 @@
 					width: 1080
 				}
 			}
-		});
+		});*/
 
 	$(function() {
 
@@ -36,7 +36,7 @@
 			$('form').placeholder();
 
 		// Prioritize "important" elements on mobile.
-			skel.on('+mobile -mobile', function() {
+			/*skel.on('+mobile -mobile', function() {
 				$.prioritize(
 					'.important\\28 mobile\\29',
 					skel.breakpoint('mobile').active
@@ -45,7 +45,7 @@
 
 		// CSS polyfills (IE<9).
 			if (skel.vars.IEVersion < 9)
-				$(':last-child').addClass('last-child');
+				$(':last-child').addClass('last-child');*/
 
 		// Dropdowns.
 			$('#nav > ul').dropotron({
@@ -86,9 +86,9 @@
 					});
 
 			// Fix: Remove navPanel transitions on WP<10 (poor/buggy performance).
-				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
+				/*if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
 					$('#titleBar, #navPanel, #page-wrapper')
-						.css('transition', 'none');
+						.css('transition', 'none');*/
 
 	});
 

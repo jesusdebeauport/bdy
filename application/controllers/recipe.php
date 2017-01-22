@@ -4,6 +4,8 @@ class recipe extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('recipe_model');
+        $this->load->library('form_validation','session');
+        $this->load->database();
     }
 
     public function index() {
