@@ -15,20 +15,23 @@ class user_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function login($username, $password) {
-        $query = $this->db->get_where('bdy_user', array('username' => $username,
-                                                        'password' => $password));
-
-        return $query->row_array();
-    }
-
-    public function set_user() {
+    public function set_user($id, $data) {
         $data = array(
-            'name' => $this->input->post('name'),
-            'email' => $this->input->post('email')
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname']
         );
 
-        return $this->db->insert('bdy_user', $data);
+        $this->db->where('user_id', $id);
+        return $this->db->update('bdy_user', $data);
+    }
+
+    public function login($username, $password) {
+        $query = $this->db->get_where('bdy_user', array('username' => $username,
+            'password' => $password));
+
+        return $query->row_array();
     }
 
     public function signup($data) {

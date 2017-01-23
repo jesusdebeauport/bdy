@@ -3,7 +3,7 @@
         <section>
             <div class="row">
                 <div id="login" class="two-columns">
-                    <header><h2>S'authentifier</h2></header>
+                    <header><h2><?php echo $title; ?></h2></header>
                     <div>
                         <?php echo validation_errors(); ?>
                         <?php echo form_open('user/login'); ?>

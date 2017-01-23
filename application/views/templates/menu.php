@@ -14,9 +14,9 @@
         </li>
         <?php if ($this->session->userdata('login')) { ?>
             <li>
-                <a class="icon fa-user" href="<?php echo site_url('user/view'); ?>"><span><?php echo $this->session->userdata('username'); ?></span></a>
+                <a class="icon fa-user" href="<?php echo site_url('user/account'); ?>"><span><?php echo $this->session->userdata('username'); ?></span></a>
                 <ul class="nav-second-level">
-                    <li><a class="icon fa-user" href="<?php echo site_url('user/view'); ?>"><span>Mon compte</span></a></li>
+                    <li><a class="icon fa-user" href="<?php echo site_url('user/account'); ?>"><span>Mon compte</span></a></li>
                     <li><a class="icon fa-sign-out" href="<?php echo site_url('user/logout'); ?>"><span>Se déconnecter</span></a></li>
                 </ul>
             </li>

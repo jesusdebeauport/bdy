@@ -31,9 +31,10 @@
                     <?php echo $this->session->flashdata('success_msg'); ?>
                 </div>
                 <?php } ?>
-                <?php if($this->session->flashdata('error_msg') !== null) { ?>
+                <?php if($this->session->flashdata('error_msg') !== null or !empty(validation_errors())) { ?>
                 <div class="error-box">
                     <?php echo $this->session->flashdata('error_msg'); ?>
+                    <?php echo validation_errors(); ?>
                 </div>
                 <?php } ?>
             </div>

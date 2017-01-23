@@ -3,7 +3,7 @@
         <section>
             <div class="row">
                 <div id="signup">
-                    <header><h2><?php echo $title; ?></2></header>
+                    <header><h2><?php echo $title; ?></h2></header>
                     <div>
                         <?php echo validation_errors(); ?>
                         <?php echo form_open('user/signup'); ?>

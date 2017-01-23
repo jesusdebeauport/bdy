@@ -52,6 +52,8 @@
 $route['recipe/create'] = 'recipe/create';
 $route['recipe/(:any)'] = 'recipe/view/$1';
 $route['recipe'] = 'recipe';
+$route['user/account'] = 'user/account';
+$route['user/change-password'] = 'user/change_password';
 $route['user/login'] = 'user/login';
 $route['user/logout'] = 'user/logout';
 $route['user/signup'] = 'user/signup';
